@@ -6,18 +6,17 @@ namespace Cpu.Arguments
     {
         private readonly IMemory _memory;
 
-        private readonly long _offset;
-
-        public RelativeArgument(IMemory memory, long offset)
+        public RelativeArgument(IMemory memory)
         {
             this._memory = memory ?? throw new ArgumentNullException(nameof(memory));
-            this._offset = offset;
         }
+
+        public long Raw { get; set; }
 
         public long Value
         {
-            get => this._memory[this._memory.RelativeBase + this._offset];
-            set => this._memory[this._memory.RelativeBase + this._offset] = value;
+            get => this._memory[this._memory.RelativeBase + this.Raw];
+            set => this._memory[this._memory.RelativeBase + this.Raw] = value;
         }
     }
 }

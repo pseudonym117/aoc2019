@@ -23,6 +23,19 @@ namespace Cpu.Devices
             return Task.FromResult(val);
         }
 
+        public bool TryGet(out long value)
+        {
+            value = long.MinValue;
+            if (this._index < this._list.Count)
+            {
+                value = this._list[this._index];
+                this._index++;
+                return true;
+            }
+
+            return false;
+        }
+
         public Task Put(long value)
         {
             this._list.Add(value);

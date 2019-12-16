@@ -6,23 +6,22 @@ namespace Cpu.Arguments
     {
         private readonly IMemory _memory;
 
-        private readonly long _addr;
-
-        public PointerArgument(IMemory memory, long addr)
+        public PointerArgument(IMemory memory)
         {
             this._memory = memory ?? throw new ArgumentNullException(nameof(memory));
-            this._addr = addr;
         }
+
+        public long Raw { get; set; }
 
         public long Value
         {
             get
             {
-                return this._memory[this._addr];
+                return this._memory[this.Raw];
             }
             set
             {
-                this._memory[this._addr] = value;
+                this._memory[this.Raw] = value;
             }
         }
     }

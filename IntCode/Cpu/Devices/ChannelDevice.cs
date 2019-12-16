@@ -18,6 +18,11 @@ namespace Cpu.Devices
             return await this._channel.Reader.ReadAsync();
         }
 
+        public bool TryGet(out long value)
+        {
+            return this._channel.Reader.TryRead(out value);
+        }
+
         public async Task Put(long value)
         {
             await this._channel.Writer.WriteAsync(value);
