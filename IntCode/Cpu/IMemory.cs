@@ -1,12 +1,13 @@
+using System;
 
 namespace Cpu
 {
-    public interface IMemory<TType>
+    public interface IMemory : ICloneable
     {
-        int RelativeBase { get; set; }
+        long RelativeBase { get; set; }
 
-        int InstructionPointer { get; set; }
+        long InstructionPointer { get; set; }
 
-        TType this[int key] { get; set; }
+        long this[long key] { get; set; }
     }
 }

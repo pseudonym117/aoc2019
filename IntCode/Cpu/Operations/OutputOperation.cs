@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 namespace Cpu.Operations
 {
     [Operation(OpCode.OUTPUT, args: 1)]
-    public class OutputOperation<TType> : IOperation<TType>
+    public class OutputOperation : IOperation
     {
-        public async Task Exec(params IArgument<TType>[] args)
+        public Task Exec(IProgram prog, params IArgument[] args)
         {
             var value = args[0];
 
-            // todo: link up IO
+            return prog.Output.Put(value.Value);
         }
     }
 }

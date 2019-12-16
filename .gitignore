@@ -3,3 +3,5 @@ input.txt
 __pycache__
 *.pyc
 Pipfile.lock
+**\bin
+**\obj

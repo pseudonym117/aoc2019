@@ -4,17 +4,17 @@ using System.Threading.Tasks;
 namespace Cpu.Operations
 {
     [Operation(OpCode.JMPIF, args: 2)]
-    public class JumpIfOperation<TType> : IOperation<TType> where TType : IComparable
+    public class JumpIfOperation : IOperation
     {
-        public Task Exec(params IArgument<TType>[] args)
+        public Task Exec(IProgram prog, params IArgument[] args)
         {
             var compare = args[0];
 
-            if (compare.Value.CompareTo(0) != 0)
+            if (compare.Value != 0)
             {
                 var destination = args[1];
 
-                // todo: figure out jump
+                prog.Memory.InstructionPointer = destination.Value;
             }
 
             return Task.CompletedTask;

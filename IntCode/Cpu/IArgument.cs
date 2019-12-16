@@ -1,7 +1,7 @@
 namespace Cpu
 {
-    public interface IArgument<TType>
+    public interface IArgument
     {
-        TType Value { get; set; }
+        long Value { get; set; }
     }
 }

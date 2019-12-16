@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 namespace Cpu.Operations
 {
     [Operation(OpCode.MRB, args: 1)]
-    public class ModifyRelativeBaseOperation : IOperation<long>
+    public class ModifyRelativeBaseOperation : IOperation
     {
-        public Task Exec(params IArgument<long>[] args)
+        public Task Exec(IProgram prog, params IArgument[] args)
         {
             var modifier = args[0];
 
-            // todo: implement
+            prog.Memory.RelativeBase += modifier.Value;
 
             return Task.CompletedTask;
         }

@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 namespace Cpu.Operations
 {
     [Operation(OpCode.CLT, args: 3)]
-    public class CompareLessThanOperation : IOperation<long>
+    public class CompareLessThanOperation : IOperation
     {
-        public Task Exec(params IArgument<long>[] args)
+        public Task Exec(IProgram prog, params IArgument[] args)
         {
             var operand1 = args[0];
             var operand2 = args[1];

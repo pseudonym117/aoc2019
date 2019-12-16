@@ -2,19 +2,19 @@ using System;
 
 namespace Cpu.Arguments
 {
-    public class PointerArgument<TType> : IArgument<TType>
+    public class PointerArgument : IArgument
     {
-        private readonly IMemory<TType> _memory;
+        private readonly IMemory _memory;
 
-        private readonly int _addr;
+        private readonly long _addr;
 
-        public PointerArgument(IMemory<TType> memory, int addr)
+        public PointerArgument(IMemory memory, long addr)
         {
             this._memory = memory ?? throw new ArgumentNullException(nameof(memory));
             this._addr = addr;
         }
 
-        public TType Value
+        public long Value
         {
             get
             {

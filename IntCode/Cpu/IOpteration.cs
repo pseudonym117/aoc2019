@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 
 namespace Cpu
 {
-    public interface IOperation<TType>
+    public interface IOperation
     {
-        Task Exec(params IArgument<TType>[] args);
+        Task Exec(IProgram prog, params IArgument[] args);
     }
 }

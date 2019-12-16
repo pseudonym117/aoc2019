@@ -2,16 +2,16 @@ using System;
 
 namespace Cpu.Arguments
 {
-    public class ImmediateArgument<TType> : IArgument<TType>
+    public class ImmediateArgument : IArgument
     {
-        private readonly TType _value;
+        private readonly long _value;
 
-        public ImmediateArgument(TType value)
+        public ImmediateArgument(long value)
         {
-            this._value = value ?? throw new ArgumentNullException(nameof(value));
+            this._value = value;
         }
 
-        public TType Value
+        public long Value
         {
             get
             {

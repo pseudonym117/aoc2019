@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 namespace Cpu.Operations
 {
     [Operation(OpCode.CEQ, args: 3)]
-    public class CompareEqualperation : IOperation<long>
+    public class CompareEqualperation : IOperation
     {
-        public Task Exec(params IArgument<long>[] args)
+        public Task Exec(IProgram prog, params IArgument[] args)
         {
             var operand1 = args[0];
             var operand2 = args[1];

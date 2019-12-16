@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 namespace Cpu.Operations
 {
     [Operation(OpCode.STOP)]
-    public class StopOperation<TType> : IOperation<TType>
+    public class StopOperation : IOperation
     {
-        public Task Exec(params IArgument<TType>[] args)
+        public Task Exec(IProgram prog, params IArgument[] args)
         {
             throw new StopExecutionException();
         }

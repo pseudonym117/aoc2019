@@ -1,6 +1,6 @@
 using System;
 
-namespace Cpu.Operations
+namespace Cpu
 {
     public class StopExecutionException : Exception
     {
